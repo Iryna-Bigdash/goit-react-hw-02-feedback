@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import shortid from 'shortid';
 
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
@@ -13,8 +12,6 @@ export default class App extends Component {
     neutral: 0,
     bad: 0,
   };
-
-  itemId = shortid.generate();
 
   updateStatistice = option => {
     return this.setState(prevState => ({
@@ -46,7 +43,6 @@ export default class App extends Component {
         <Section title="Please leave feedback" children={FeedbackOptions}>
           <FeedbackOptions
             options={Object.keys(this.state)}
-            idKey={this.itemId}
             onLeaveFeedback={this.updateStatistice}
           />
         </Section>
